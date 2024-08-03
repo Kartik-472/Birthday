@@ -1,0 +1,90 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #add8e6; /* Light blue background */
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    animation: fadeIn 2s;
+    z-index: 10; /* Ensure card is above decorations */
+}
+
+h1 {
+    color: #00008b; /* Dark blue text */
+}
+
+button {
+    background-color: #00008b; /* Dark blue background */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    animation: bounce 2s infinite;
+}
+
+button:hover {
+    background-color: #4169e1; /* Lighter blue on hover */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.balloons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    background-color: rgba(255, 0, 0, 0.7);
+    width: 50px;
+    height: 70px;
+    border-radius: 50% 50% 45% 45%;
+    animation: floatUp 10s infinite;
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 2px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+    animation: swing 1s infinite alternate;
+}
+
+@keyframes floatUp {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(-50px) translateY(-120vh); }
+}
+
+@keyframes swing {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(15deg); }
+}
